@@ -14,10 +14,10 @@ reddit = praw.Reddit(client_id="edhlsn3xRnsuK_U1n_qOfQ", client_secret="DyZHk39I
 
 api = PushshiftAPI()
 
-start_epoch=int(dt.datetime(2022, 1, 1).timestamp())
-end_epoch=int(dt.datetime(2022, 2, 20).timestamp())
+start_date=int(dt.datetime(2022, 9, 23).timestamp())
+#end_date=int(dt.datetime(2022, 2, 20).timestamp())
 
-pmaw_api = api.search_submissions(subreddit='UCSC' ,limit=50)
+pmaw_api = api.search_submissions(subreddit='UCSC', after=start_date, limit=1)
 
 print(len(pmaw_api))
 
@@ -28,10 +28,10 @@ print(urls)
 for url in urls:
     try:
         submission = reddit.submission(url=url)
+        print('#####################################')
+        submission.comments.replace_more(limit=None)
+        print(submission.selftext)
+        for comment in submission.comments:
+            show_replies(comment)
     except:
         pass
-    print('#####################################')
-    #submission.comments.replace_more(limit=None)
-    print(submission.title)
-    for comment in submission.comments:
-        show_replies(comment)
