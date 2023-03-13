@@ -14,6 +14,7 @@ model = bayes.NaiveBayes()
 #model.save('./trained_models/attempt2.csv')
 
 model.load('./trained_models/attempt1.csv')
+model.load_add('./trained_models/attempt3.csv')
 
 url = "https://www.reddit.com/r/UCSC/comments/11p9z11/whats_it_like_havingpursuing_a_crush_in_college/"
 post = reddit.submission(url=url)
