@@ -64,7 +64,7 @@ class NaiveBayes:
 
     def predict(self, submission):
         #normalize_2 = np.array([.70,.85,1.50,3.5,1.05])
-        normalize = np.array([1.1,.75,1.22,1.52,1.05])
+        normalize = np.array([1.1,.75,1.22,1.52,1.00])
 
         probabilities = np.array([.2,.2,.2,.2,.2])
         submission.comments.replace_more(limit=None)
