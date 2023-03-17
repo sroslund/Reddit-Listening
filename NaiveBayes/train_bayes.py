@@ -2,7 +2,7 @@ import bayes
 import praw
 from pmaw import PushshiftAPI
 
-validate = False
+validate = True
 
 agent = "r/ucsc data scrapper"
 reddit = praw.Reddit(client_id="edhlsn3xRnsuK_U1n_qOfQ", client_secret="DyZHk39I6aJmKweONoS3IFU2kmyHIQ", user_agent = agent)
@@ -16,7 +16,7 @@ model = bayes.NaiveBayes()
 model.load('./trained_models/attempt1.csv')
 model.load_add('./trained_models/attempt3.csv')
 
-url = "https://www.reddit.com/r/UCSC/comments/11c0s87/what_to_do_if_my_friends_think_im_stupid/"
+url = "https://www.reddit.com/r/UCSC/comments/11pwxib/i_am_a_junior_and_i_still_dont_know_how_to_study/"
 post = reddit.submission(url=url)
 print(model.predict(post))
 
